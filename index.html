@@ -1,0 +1,642 @@
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+
+<div style="text-align:center;">
+<link rel="shortcut icon" href="https://i.loli.net/2021/01/31/lhopwFbAmI86ky5.jpg" /> 
+<title>李小蒙</title>
+	<img src="https://i.loli.net/2020/12/19/xksQt5lGRaC17Oi.jpg" height="100" width="200" /> 
+</div>
+<h1 align="center">
+	李小蒙
+</h1>
+ <form action="http://www.baidu.com/s">
+        <input type="text" 
+        placeholder="请输入关键字"
+        name="wd" >
+        <input type="submit" value="百度搜索">
+    </form>
+
+
+
+
+
+
+<!--插入按钮 开始-->
+
+<input type="button" value="快点我吧😄，有惊喜呀！" onclick="MsgBox()" />
+
+<!--插入按钮 结束-->
+
+<!--引用JS代码以达到弹出对话框目的 开始-->
+
+<script language="javascript">
+
+function MsgBox() //声明标识符
+
+{
+
+alert("祝你好事成双，祝您快乐。"); //弹出对话框
+
+}
+
+</script>
+
+<!--引用JS代码以达到弹出对话框目的 结束-->
+
+
+dddd
+
+
+
+<p>
+	<iframe width="500" height="3
+    <script type="text/javascript">
+        var canvas, context;
+        function DrawClock() {
+            canvas = document.getElementById("canvas");
+            context = canvas.getContext("2d");
+            setInterval("drawbackground()", 1000);
+        }
+        function drawbackground() {
+            var radius = Math.min(canvas.width / 2, canvas.height / 2) - 15;
+            var centerx = canvas.width / 2;
+            var centery = canvas.height / 2;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.save();
+            context.lineWidth = 15;
+            context.fillStyle = "#EFEFEF";
+            context.strokeStyle = "#000";
+            context.beginPath();
+            context.arc(centerx, centery, radius, 0, Math.PI * 2, 0);
+            context.fill();
+            context.stroke();
+            context.closePath();
+            context.restore();
+            for (var i = 0; i < 60; i++) {
+                context.save();
+                context.fillStyle = "#EFEFEF";
+                context.strokeStyle = "#000";   
+                if (i % 5 == 0) {
+                    context.lineWidth = 3;
+                }
+                context.beginPath();
+                context.moveTo(centerx, centery);
+                context.lineTo(centerx + (radius-6) * Math.cos(i * 6 * Math.PI / 180), centery - (radius-5) * Math.sin(i * 6 * Math.PI / 180));
+                context.fill();
+                context.stroke();
+                context.closePath();
+                context.restore();
+            }
+            context.moveTo(centerx, centery);
+            context.save();
+            context.fillStyle = "#EFEFEF";
+            context.strokeStyle = "#EFEFEF";
+            context.beginPath();
+            context.arc(centerx, centery, radius-15, 0, Math.PI * 2, 0);
+            context.fill();
+            context.stroke();
+            context.closePath();
+            context.restore();
+        
+            var r = radius - 25;
+            context.font = "bold 20px 宋体";
+            Drawtext("1", centerx + (Math.cos(60 * Math.PI / 180) * r), centery - (Math.sin(60 * Math.PI / 180) * r));
+            Drawtext("2", centerx + (Math.cos(30 * Math.PI / 180) * r), centery - (Math.sin(30 * Math.PI / 180) * r));
+            Drawtext("3", centerx + (Math.cos(0 * Math.PI / 180) * r), centery - (Math.sin(0 * Math.PI / 180) * r));
+            Drawtext("4", centerx + (Math.cos(330 * Math.PI / 180) * r), centery - (Math.sin(330 * Math.PI / 180) * r));
+            Drawtext("5", centerx + (Math.cos(300 * Math.PI / 180) * r), centery - (Math.sin(300 * Math.PI / 180) * r));
+            Drawtext("6", centerx + (Math.cos(270 * Math.PI / 180) * r), centery - (Math.sin(270 * Math.PI / 180) * r));
+            Drawtext("7", centerx + (Math.cos(240 * Math.PI / 180) * r), centery - (Math.sin(240 * Math.PI / 180) * r));
+            Drawtext("8", centerx + (Math.cos(210 * Math.PI / 180) * r), centery - (Math.sin(210 * Math.PI / 180) * r));
+            Drawtext("9", centerx + (Math.cos(180 * Math.PI / 180) * r), centery - (Math.sin(180 * Math.PI / 180) * r));
+            Drawtext("10", centerx + (Math.cos(150 * Math.PI / 180) * r), centery - (Math.sin(150 * Math.PI / 180) * r));
+            Drawtext("11", centerx + (Math.cos(120 * Math.PI / 180) * r), centery - (Math.sin(120 * Math.PI / 180) * r));
+            Drawtext("12", centerx + (Math.cos(90 * Math.PI / 180) * r), centery - (Math.sin(90 * Math.PI / 180) * r));
+            context.save();
+            context.fillStyle="black";
+            context.beginPath();
+            context.arc(centerx,centery,10,0,Math.PI*2,0);
+            context.fill();
+            context.stroke();
+            context.closePath();
+            context.restore();
+        
+            drawpoint(centerx, centery, radius);
+        
+        }
+        
+        function drawpoint(centerx, centery, radius) {
+            var date = new Date();
+            var h = date.getHours();
+            h = h < 13 ? h : h - 12;
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+        
+            var th = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+            var tm = m < 10 ? "0" + m : m;
+            var ts = s < 10 ? "0" + s : s;
+            document.getElementById("currtime").innerHTML = th + ":" + tm + ":" + ts;
+        
+            var hr = h * 30 * Math.PI / 180 + (m / 60) * 30 * Math.PI / 180 + 90 * Math.PI / 180;
+            var mr = m * 6 * Math.PI / 180 + s / 60 * 6 * Math.PI / 180 + 90 * Math.PI / 180;
+            var sr = s * 6 * Math.PI / 180 + 90 * Math.PI / 180;
+            context.save();
+            context.lineWidth = 5;
+            context.fillStyle = "darkgray";
+            context.strokeStyle = "black";
+            context.beginPath();
+            context.moveTo(centerx + 20 * Math.cos(hr), centery + 20 * Math.sin(hr));
+            context.lineTo(centerx - (radius - 120) * Math.cos(hr), centery - (radius - 120) * Math.sin(hr));
+        
+            context.moveTo(centerx + 20 * Math.cos(mr), centery + 20 * Math.sin(mr));
+            context.lineTo(centerx - (radius - 80) * Math.cos(mr), centery - (radius - 80) * Math.sin(mr));
+        
+        
+            context.moveTo(centerx + 20 * Math.cos(sr), centery + 20 * Math.sin(sr));
+            context.lineTo(centerx - (radius - 50) * Math.cos(sr), centery - (radius - 50) * Math.sin(sr));
+        
+            context.closePath();
+            context.fill();
+            context.stroke();
+            context.restore();
+        }
+        
+        function Drawtext(text, x, y) {
+            context.save();
+            x -= (context.measureText(text).width / 2);
+            y += 9;
+            context.beginPath();
+            context.translate(x, y);
+            context.fillText(text, 0, 0);
+            context.restore();
+        }
+        
+        window.onload = DrawClock;
+    </script>
+    <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tt&skin=pitaya" frameborder="0" width="590" height="98" allowtransparency="true"></iframe>
+    <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tw&skin=pitaya" frameborder="0" width="300" height="500" allowtransparency="true"></iframe>
+<br />
+<div class="weather">
+<iframe width="455" scrolling="no" height="75" frameborder="0" allowtransparency="true"
+src="http://i.tianqi.com/index.php?c=code&amp;id=38&amp;icon=1&amp;num=2&amp;align=left"></iframe>
+</div>
+</head>
+<body>
+    
+    <canvas id="canvas" width="400px" height="400px"></canvas>
+    <div class="time"><span id="currtime">00:00:00</span><em></em></div>
+&nbsp; &nbsp; &nbsp;
+</p>
+<h5>通告栏</h5>
+<pre class="content">
+
+小蒙官网将会有一次大更新！
+小蒙祝大家初四快乐！
+	🙃🙃听说点击页面底部的李小蒙有彩蛋喔。。。<img src="http://kindeditor.net/ke4/plugins/emoticons/images/8.gif" border="0" alt="" />
+
+ </pre>  
+
+
+
+
+<p>
+	&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+</p>
+<hr />
+<p>
+	<br />
+</p>
+<p>
+	<br />
+</p>
+<p>
+	<br />
+
+</p>
+<p align="center><span>李小蒙网页导航html</span> 
+	</p>
+<p font-family:'Microsoft YaHei><a href="https://www.baidu.com"" www.baidu.com"="" "="">
+</p>
+
+<a href="https://m.so.com/">打开360搜索儿</a> &nbsp&nbsp&nbsp&nbsp
+<a href="https://m.so.com/">腾讯新闻儿</a> &nbsp&nbsp&nbsp&nbsp
+<a href="https://m.iqiyi.com/">打开爱奇艺</a> &nbsp&nbsp&nbsp&nbsp
+<a href="http://cn.bing.com/">打开bing</a> &nbsp&nbsp&nbsp&nbsp
+<a href="https://m.bilibili.com/">打开Bilibili</a> &nbsp&nbsp&nbsp&nbsp
+<a href="https://www.youku.com/">打开优酷</a> &nbsp&nbsp&nbsp&nbsp
+<a href="https://www.zhihu.com/">打开知乎</a> &nbsp&nbsp&nbsp&nbsp
+<a href="https://translate.google.cn/">打开歌谷翻译</a> &nbsp&nbsp&nbsp&nbsp
+<a href="https://lixiaomeng546.github.io/hongye/cc1.html">保定限号</a> &nbsp&nbsp&nbsp&nbsp
+
+<h3>
+	李小蒙链接
+</h3>
+李小蒙无敌:<br />
+李小蒙:
+<p>
+	点击以上输入，都可以点，李小蒙李小蒙
+</p>
+<p>
+	↓hello word 李小蒙实用工具箱
+</p>
+<p>
+	<a href="小蒙lu">按这玩的（才怪）</a> 
+</p>
+<table border="1">
+	<tbody>
+		<tr>
+			<td>
+				就是这么任性
+			</td>
+			<td>
+				李小蒙
+			</td>
+			<td>
+				呵呵
+			</td>
+		</tr>
+		<tr>
+			<td>
+				呵呵
+			</td>
+			<td>
+				呵呵
+			</td>
+			<td>
+				呵呵😂🥶
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	<a href="https://rd.wechat.com/qrcode/confirm?block_type=101&amp;content=%E8%BF%98%E6%9C%89%E8%B0%81%EF%BC%8C%0A%E6%9D%8E%E5%B0%8F%E8%92%99%EF%BC%8C%0A%E9%9A%8F%E5%90%8E%EF%BC%8C%E6%9D%8E%E5%B0%8F%E8%92%99%E7%BB%99%E4%BA%86%E6%95%8C%E4%BA%BA%E4%B8%80%E6%8B%B3%EF%BC%8C%0A%E6%95%8C%E4%BA%BA%E5%97%9D%E5%B1%81%E4%BA%86%E3%80%82%0A%E2%80%94%E2%80%94%E6%9D%8E%E5%B0%8F%E8%92%99&amp;lang=zh_CN&amp;scene=34">看小说</a> 
+</p>
+
+	<a href="https://www.baidu.com">打开小蒙度</a> &nbsp&nbsp&nbsp&nbsp
+
+
+	<a href="#">还还是按着玩的</a> 
+&nbsp&nbsp&nbsp&nbsp
+
+	<a href="file://storage/emulated/0/Android/data/com.baidu.netdisk/cache/preview/BaiduNetdisk/%E6%9D%8E%E5%B0%8F%E8%92%99/htmls/%E6%9D%8E%E5%B0%8F%E8%92%99(1).html">小蒙⑨测试</a> 
+&nbsp&nbsp&nbsp&nbsp
+
+	<a href="#">sb之旅，才挂</a> 
+&nbsp&nbsp&nbsp&nbsp
+
+	<img
+	
+		<a href="https://m.baidu.com/l=1/tc?logid=2269864909&amp;from=1020786s&amp;ref=index_iphone&amp;nsrc=IlPT2AEptyoA_yixCFOxCGZb8c3JV3T5ABfPNy6R2iv5nk_qva02FMNsUiH5Nn_KJoCa9m3BdMZObmGcWyNnn1E2e_&amp;bdenc=1&amp;ct=10&amp;cst=2&amp;logFrom=navs_square">工具广场</a></img
+		&nbsp&nbsp&nbsp&nbsp
+			<br />
+		</p></pre>  
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<hr />
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<iframe src="http://kindeditor.net/ke4/plugins/baidumap/index.html?center=115.880566%2C39.332334&amp;zoom=12&amp;width=558&amp;height=360&amp;markers=115.880566%2C39.332334&amp;markerStyles=l%2CA" frameborder="0" style="width:560px;height:362px;">
+			</iframe>
+		</p>
+		<p>
+			<br />
+		</p>
+		<hr />
+		<p>
+			<br />
+		</p>
+		<h2 style="text-align:center;">
+			好句
+		</h2>
+		<p>
+			<hr style="page-break-after:always;" class="ke-pagebreak" />
+			<div style="text-align:center;">
+				<span style="color:#00D5FF;"></span><span style="color:#00D5FF;">&nbsp; &nbsp;</span><span style="color:#00D5FF;"></span><span style="color:#00D5FF;">&nbsp;</span>
+			</div>
+		</p>
+		<p style="text-align:center;">
+			<span style="color:#00D4FF;">去接受一些你不了解的东西，去争取，去相信自己可以改变一些事情</span>
+		</p>
+		<p style="text-align:center;">
+			<span style="color:#00D3FF;">又一天过去了。今天过得怎么样，梦想是不是更远了？</span>
+		</p>
+		<p style="text-align:center;">
+			<span style="color:#00D2FF;">很多时候，乐观的态度和好听的话帮不了你。</span>
+		</p>
+		<p style="text-align:center;">
+			<span style="color:#00D1FF;">人一旦习惯了孤独，那才是比悲伤更悲伤的事</span>
+		</p>
+		<p style="text-align:center;">
+			<span style="color:#00D0FF;">不要轻易把伤口揭开给别人看，因为别人看的是热闹，而痛的却是自己</span>
+		</p>
+		<p>
+			<img src="/ke4/attached/24000750690483.jpg" alt="" />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<hr />
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<br />
+		</p>
+		<p>
+			<span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><img src="https://i.loli.net/2020/12/20/aIMfXQzFsogc1B3.jpg" height="200" width="200" your="" browser="" does="" not="" support="" the="" audio="" element.<img<div="" title="小宝" align="" alt="小宝" style="text-align: center; background-color: black; margin: 300px auto 0px;"><img src="https://i.loli.net/2021/01/16/S4Mi5REBc7CtXJd.jpg" width="200" height="200" alt="" />
+		</p>
+<img
+		<p>
+			<p>
+				<br />
+			</p>
+			<p style="text-align:center;">
+				<br />
+			</p>
+			<hr />
+			<p>
+				<br />
+			</p>
+			<p style="text-align:center;">
+				<br />
+			</p>
+			<p style="text-align:center;">
+				<a href="https://lixiaomeng546.github.io/hongye/%E5%B0%8F%E8%92%99lu.html">李小蒙&copy;</a>
+			</p>
+			<p>
+				<br />
+			</p>
+</img
+			<p>
+			<iframe width="200" height="65" frameborder="0" src="https://i.loli.net/2021/01/31/Sma1bEQVgI6kNqx.jpg">
+			<img src="https://i.loli.net/2021/01/31/Sma1bEQVgI6kNqx.jpg" height="100" width="200" /> 
+<select>
+
+<option>看看</option>
+
+</select>
+
+
+<!--插入按钮 开始-->
+
+<input type="button" value="快点我" onclick="MsgBox()" />
+
+<!--插入按钮 结束-->
+
+<!--引用JS代码以达到弹出对话框目的 开始-->
+
+<script language="javascript">
+
+function MsgBox() //声明标识符
+
+{
+
+alert("祝你好事成双👍🏻👍🏻👍👍🏼👍🏽👍🏾👍🏿🤗🤗🤗🤗🤗"); //弹出对话框
+
+}
+
+</script>
+
+<!--引用JS代码以达到弹出对话框目的 结束-->
+
+
+
+<!--插入按钮 开始-->
+
+<input type="button" value="快点我" onclick="MsgBox()" />
+
+<!--插入按钮 结束-->
+
+<!--引用JS代码以达到弹出对话框目的 开始-->
+
+<script language="javascript">
+
+function MsgBox() //声明标识符
+
+{
+
+alert("祝你好事成双👍🏻👍🏻👍👍🏼👍🏽👍🏾👍🏿🤗🤗🤗🤗🤗"); //弹出对话框
+
+}
+
+</script>
+
+<!--引用JS代码以达到弹出对话框目的 结束-->
+
+
+
+<!--插入按钮 开始-->
+
+<input type="button" value="快点我" onclick="MsgBox()" />
+
+<!--插入按钮 结束-->
+
+<!--引用JS代码以达到弹出对话框目的 开始-->
+
+<script language="javascript">
+
+function MsgBox() //声明标识符
+
+{
+
+alert("祝你好事成双👍🏻👍🏻👍👍🏼👍🏽👍🏾👍🏿🤗🤗🤗🤗🤗"); //弹出对话框
+
+}
+
+</script>
+
+<!--引用JS代码以达到弹出对话框目的 结束-->
+<img src="https://raw.sevencdn.com/HEU-F8-PRACTICE/stor/master/20210203/32b00dbcc6f81fba73ca54383c7a9ad7/32b00dbcc6f81fba73ca54383c7a9ad7.gif" height="200" width="200" /> 
+<style type="text/css">
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    html,body{
+        height: 100%;
+    }
+    .wrap{
+        width: 260px;
+        height: 100%;
+        background-color: #363a45;
+    }
+    .header{
+        width: 100%;
+        height: 65px;
+        background-color: #44495a;
+        font-size: 24px;
+        color: #fff;
+        text-align: center;
+        line-height: 65px;
+    }
+    .nav{
+        width:250px;
+        margin: 10px 5px 0;
+    }
+    .list{
+        margin-bottom: 5px;
+    }
+    .list h2{
+        position: relative;
+        padding: 15px 0;
+        background-color: #3889d4;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        transition: .5s;
+    }
+    .list h2.on{
+        background-color: #393c4a;
+    }
+    .list i{
+        position: absolute;
+        right: 10px;
+        top: 16px;
+        border: 8px solid transparent;
+        border-left-color: #fff;/*triangle*/
+        transform:rotate(0deg);
+        transform-origin: 1px 8px;
+        transition: .5s;
+    }
+    .list i.on{
+        transform:rotate(90deg);
+    }
+    .hide{
+        overflow: hidden;
+        height: 0;
+        transition: .5s;
+    }
+    .hide h5{
+        padding: 10px 0;
+        background-color: #282c3a;
+        text-align: center;
+        color:#fff;
+        border-bottom:#42495d;
+    }
+</style>
+<body>
+    <div class="wrap">
+        <div class="header">国内各个景点</div>
+        <div class="nav">
+            <ul>
+                <li class="list">
+                    <h2><i></i>小蒙</h2>
+                    <div class="hide">
+                        <h5>故宫</h5>
+                        <h5>圆明园</h5>
+                        <h5>天坛</h5>
+                        <h5>长城</h5>
+                        <h5>天安门</h5>
+                        <h5>雍和宫</h5>
+                    </div>
+                </li>
+                <li class="list">
+                    <h2><i></i>南京景点</h2>
+                    <div class="hide">
+                        <h5>夫子庙</h5>
+                        <h5>南京总统府</h5>
+                        <h5>明孝陵</h5>
+                        <h5>长江大桥</h5>
+                        <h5>南京博物院</h5>
+                        <h5>雨花台</h5>
+                    </div>
+                </li>
+                <li class="list">
+                    <h2><i></i>西安景点</h2>
+                    <div class="hide">
+                        <h5>钟楼</h5>
+                        <h5>秦皇陵</h5>
+                        <h5>华清池</h5>
+                        <h5>大唐芙蓉园</h5>
+                        <h5>秦岭野生动物园</h5>
+                        <h5>樱花广场</h5>
+                    </div>
+                </li>
+                <li class="list">
+                    <h2><i></i>重庆景点</h2>
+                    <div class="hide">
+                        <h5>洪崖洞</h5>
+                        <h5>丰都鬼城</h5>
+                        <h5>金刀峡</h5>
+                        <h5>重庆仙女山</h5>
+                        <h5>白公馆</h5>
+                        <h5>三峡博物馆</h5>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var oList = document.querySelectorAll('.list h2'),
+                oHide = document.querySelectorAll('.hide'),
+                oIcon = document.querySelectorAll('.list i'),
+                lastIndex = 0;
+            for(var i=0;i<oList.length;i++){
+                oList[i].index = i;//自定义属性
+                oList[i].isClick = false;
+                oList[i].initHeight = oHide[i].clientHeight;
+                oHide[i].style.height = '0';
+                oList[i].onclick = function () {
+                    if(this.isClick){
+                        oHide[this.index].style.height = '0';
+                        oIcon[this.index].className = '';
+                        oList[this.index].className = '';
+                        oList[this.index].isClick = false;
+                    }
+                    else{
+                        oHide[lastIndex].style.height = '0';
+                        oIcon[lastIndex].className = '';
+                        oList[lastIndex].className = '';
+                        oHide[this.index].style.height = '220px';
+                        oIcon[this.index].className = 'on';
+                        oList[this.index].className = 'on';
+                        oList[lastIndex].isClick = false;
+                        oList[this.index].isClick = true;
+                        lastIndex = this.index;
+                    }
+                }
+            }
+        })();
+    </script>
+
+
+
+
+
+</div>
+
+	</iframe>
